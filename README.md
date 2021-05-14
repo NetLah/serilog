@@ -2,6 +2,10 @@
 
 [NetLah.Extensions.Logging.Serilog](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog/) is a library which contains a set of reusable utility classes for wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` and Serilog initialization as soon as the configuration available. The utility classes are `AppLog`, `AspNetCoreApplicationBuilderExtensions`, `HostBuilderExtensions`.
 
+## Nuget package
+
+[![NuGet](https://img.shields.io/nuget/v/NetLah.Extensions.Logging.Serilog.svg?style=flat-square&label=nuget&colorB=00b200)](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog/)
+
 ## Getting started
 
 ### Reference

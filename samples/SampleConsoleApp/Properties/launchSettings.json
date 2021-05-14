@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SampleConsoleApp": {
+      "commandName": "Project",
+      "workingDirectory": "."
+    }
+  }
+}

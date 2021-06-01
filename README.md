@@ -6,6 +6,10 @@
 
 [![NuGet](https://img.shields.io/nuget/v/NetLah.Extensions.Logging.Serilog.svg?style=flat-square&label=nuget&colorB=00b200)](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog/)
 
+## Build Status
+
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FNetLah%2Fserilog%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/NetLah/serilog/goto?ref=main)
+
 ## Getting started
 
 ### Reference

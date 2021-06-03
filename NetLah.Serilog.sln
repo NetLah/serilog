@@ -6,21 +6,22 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43ECBF11-5D83-49DE-BE0A-1A8B4E254A3B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.azure\pipelines\azure-pipelines.yml = .azure\pipelines\azure-pipelines.yml
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLah.Extensions.Logging.Serilog", "NetLah.Extensions.Logging.Serilog\NetLah.Extensions.Logging.Serilog.csproj", "{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog", "NetLah.Extensions.Logging.Serilog\NetLah.Extensions.Logging.Serilog.csproj", "{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetLah.Extensions.Logging.Serilog.Test", "NetLah.Extensions.Logging.Serilog.Test\NetLah.Extensions.Logging.Serilog.Test.csproj", "{D676EAD1-12D0-45A5-87F3-5E3F80D31FD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog.Test", "NetLah.Extensions.Logging.Serilog.Test\NetLah.Extensions.Logging.Serilog.Test.csproj", "{D676EAD1-12D0-45A5-87F3-5E3F80D31FD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsoleApp", "samples\SampleConsoleApp\SampleConsoleApp.csproj", "{A853F0CC-4F53-4051-849B-2376FBFA9801}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleApp", "samples\SampleConsoleApp\SampleConsoleApp.csproj", "{A853F0CC-4F53-4051-849B-2376FBFA9801}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsoleAppDependencyInjection", "samples\SampleConsoleAppDependencyInjection\SampleConsoleAppDependencyInjection.csproj", "{068A9B74-0D51-4C99-B929-E64243BF5F52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleAppDependencyInjection", "samples\SampleConsoleAppDependencyInjection\SampleConsoleAppDependencyInjection.csproj", "{068A9B74-0D51-4C99-B929-E64243BF5F52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

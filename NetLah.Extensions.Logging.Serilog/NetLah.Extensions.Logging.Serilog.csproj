@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <PackageId>NetLah.Extensions.Logging.Serilog</PackageId>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageTags>application-info;assembly-info;assembly-build-datetime;build-datetime;assembly;build;netcore;dotnet;aspnetcore;diagnostics</PackageTags>
+    <TargetFrameworks>net6.0;net5.0;netstandard2.1;netstandard2.0</TargetFrameworks>
     <Description>Reusable utility classes for wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` and Serilog initialization</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../NetLah.snk</AssemblyOriginatorKeyFile>

@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <PackageId>NetLah.Extensions.Logging.Serilog</PackageId>
-    <PackageTags>application-info;assembly-info;assembly-build-datetime;build-datetime;assembly;build;netcore;dotnet;aspnetcore;diagnostics</PackageTags>
+    <PackageTags>log;logging;serilog;nlog;log4net;dotnet;netcore;aspnetcore</PackageTags>
     <TargetFrameworks>net6.0;net5.0;netstandard2.1;netstandard2.0</TargetFrameworks>
-    <Description>Reusable utility classes for wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` and Serilog initialization</Description>
+    <Description>Initializing Serilog and wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` for ASP.NETCore and ConsoleApp</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../NetLah.snk</AssemblyOriginatorKeyFile>
     <RootNamespace>NetLah.Extensions.Logging</RootNamespace>

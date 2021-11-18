@@ -19,7 +19,7 @@
     <!-- Embed source files that are not tracked by the source control manager in the PDB -->
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-    <LangVersion>9.0</LangVersion>
+    <LangVersion Condition="'$(TargetFramework)' != 'net6.0'">9.0</LangVersion>
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
   </PropertyGroup>
 

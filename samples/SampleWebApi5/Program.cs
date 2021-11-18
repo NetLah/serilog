@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NetLah.Diagnostics;
 using NetLah.Extensions.Logging;
+using System;
 
 namespace SampleWebApi
 {
@@ -12,6 +13,7 @@ namespace SampleWebApi
     {
         public static void Main(string[] args)
         {
+            ApplicationInfo.Initialize(null);
             AppLog.InitLogger();
             try
             {
@@ -31,7 +33,14 @@ namespace SampleWebApi
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseSerilog2(logger => logger.LogInformation("Application initializing..."))    //  write log to sinks
+                .UseSerilog2(logger =>
+                {
+                    if (ApplicationInfo.Instance is { } appInfo)
+                    {
+                        logger.LogInformation("Application initializing... AppTitle:{appTitle}; Version:{appVersion} BuildTime:{appBuildTime}; Framework:{frameworkName}",
+                            appInfo.Title, appInfo.InformationalVersion, appInfo.BuildTimestampLocal, appInfo.FrameworkName);
+                    }
+                })    //  write log to sinks
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

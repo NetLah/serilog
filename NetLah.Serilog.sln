@@ -13,7 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{307AEF00-A196-43E6-8C31-8325F3859D4D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D6C8A0E8-866A-4980-8717-4237516B791F}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.targets = src\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{307AEF00-A196-43E6-8C31-8325F3859D4D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi5", "samples\SampleWebApi5\SampleWebApi5.csproj", "{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}"
 EndProject
@@ -58,6 +63,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD} = {D6C8A0E8-866A-4980-8717-4237516B791F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {756FF949-EAAC-4047-89DB-EB559A767C6C}

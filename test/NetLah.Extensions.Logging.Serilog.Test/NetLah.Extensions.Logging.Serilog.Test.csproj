@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetLah.Extensions.Logging.Serilog\NetLah.Extensions.Logging.Serilog.csproj" />
+    <ProjectReference Include="..\..\src\NetLah.Extensions.Logging.Serilog\NetLah.Extensions.Logging.Serilog.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@
     <TargetFrameworks>net6.0;net5.0;netstandard2.1;netstandard2.0</TargetFrameworks>
     <Description>Initializing Serilog and wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` for ASP.NETCore and ConsoleApp</Description>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>../NetLah.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>../../NetLah.snk</AssemblyOriginatorKeyFile>
     <RootNamespace>NetLah.Extensions.Logging</RootNamespace>
     <AssemblyName>NetLah.Extensions.Logging.Serilog</AssemblyName>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
-    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

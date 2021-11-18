@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApi", "samples\Sam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi5", "samples\SampleWebApi5\SampleWebApi5.csproj", "{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog", "NetLah.Extensions.Logging.Serilog\NetLah.Extensions.Logging.Serilog.csproj", "{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog", "src\NetLah.Extensions.Logging.Serilog\NetLah.Extensions.Logging.Serilog.csproj", "{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog.Test", "NetLah.Extensions.Logging.Serilog.Test\NetLah.Extensions.Logging.Serilog.Test.csproj", "{D676EAD1-12D0-45A5-87F3-5E3F80D31FD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog.Test", "test\NetLah.Extensions.Logging.Serilog.Test\NetLah.Extensions.Logging.Serilog.Test.csproj", "{D676EAD1-12D0-45A5-87F3-5E3F80D31FD1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleApp", "samples\SampleConsoleApp\SampleConsoleApp.csproj", "{A853F0CC-4F53-4051-849B-2376FBFA9801}"
 EndProject

@@ -34,10 +34,9 @@
 
     <!--serilog-->
     <PackageReference Update="Serilog" Version="[2.10.0,3)" />
-    <PackageReference Update="Serilog.AspNetCore" Version="[4.1.0,5)" />
-    <PackageReference Update="Serilog.Extensions.Hosting" Version="[4.1.2,5)" />
-    <PackageReference Update="Serilog.Extensions.Logging" Version="[3.0.1,4)" />
-    <PackageReference Update="Serilog.Settings.Configuration" Version="[3.1.0,4)" />
+    <PackageReference Update="Serilog.AspNetCore" Version="[4.0.0,5)" />
+    <PackageReference Update="Serilog.Extensions.Logging" Version="[3.0.0,4)" />
+    <PackageReference Update="Serilog.Settings.Configuration" Version="[3.0.0,4)" />
     <PackageReference Update="Serilog.Sinks.Console" Version="[4.0.0,5)" />
 
     <!--microsoft extensions-->
@@ -55,6 +54,8 @@
     <PackageReference Update="Microsoft.Extensions.Configuration.Xml" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(FrameworkBaselineVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyModel" Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'" Version="3.1.0" />
+    <PackageReference Update="Microsoft.Extensions.DependencyModel" Condition="'$(TargetFramework)' == 'net5.0' Or '$(TargetFramework)' == 'net6.0'" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.WindowsServices" Version="$(FrameworkBaselineVersion)" />
@@ -63,6 +64,7 @@
     <PackageReference Update="Microsoft.Extensions.Identity.Core" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Options" Version="$(FrameworkBaselineVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.ObjectPool" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="System.Collections.Immutable" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="System.DirectoryServices.AccountManagement" Version="$(FrameworkBaselineVersion)" />

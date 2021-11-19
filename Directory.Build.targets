@@ -94,6 +94,7 @@
     <PackageReference Update="Microsoft.Extensions.Configuration.Xml" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(FrameworkVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyModel" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.WindowsServices" Version="$(FrameworkVersion)" />
@@ -102,11 +103,13 @@
     <PackageReference Update="Microsoft.Extensions.Identity.Core" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.Options" Version="$(FrameworkVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.ObjectPool" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Collections.Immutable" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.DirectoryServices.AccountManagement" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.DirectoryServices.Protocols" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Drawing.Common" Version="$(FrameworkVersion)" />
+    <PackageReference Update="System.Net.Http.Json" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'" Version="5.*" />
     <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' == 'net6.0'" Version="$(FrameworkVersion)" />
 

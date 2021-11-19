@@ -1,10 +1,11 @@
 # NetLah.Extensions.Logging.Serilog - .NET Library
 
-[NetLah.Extensions.Logging.Serilog](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog/) is a library which contains a set of reusable utility classes for initializing Serilog and wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` for ASP.NETCore and ConsoleApp. The utility classes are `AppLog`, `AspNetCoreApplicationBuilderExtensions`, `HostBuilderExtensions`.
+[NetLah.Extensions.Logging.Serilog](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog/) and [NetLah.Extensions.Logging.Serilog.AspNetCore](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog.AspNetCore/) are a library which contains a set of reusable utility classes for initializing Serilog and wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` for ASP.NETCore and ConsoleApp. The utility classes are `AppLog`, `AspNetCoreApplicationBuilderExtensions`, `HostBuilderExtensions`.
 
 ## Nuget package
 
 [![NuGet](https://img.shields.io/nuget/v/NetLah.Extensions.Logging.Serilog.svg?style=flat-square&label=nuget&colorB=00b200)](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog/)
+[![NuGet](https://img.shields.io/nuget/v/NetLah.Extensions.Logging.Serilog.AspNetCore.svg?style=flat-square&label=nuget&colorB=00b200)](https://www.nuget.org/packages/NetLah.Extensions.Logging.Serilog.AspNetCore/)
 
 ## Build Status
 
@@ -20,9 +21,116 @@
 
 - Two-stage initialization: https://github.com/serilog/serilog-aspnetcore#two-stage-initialization
 
+### Sample appsettings.json
+
+```json
+{
+  "AllowedHosts": "*",
+  "Serilog": {
+    "Using": ["Serilog.Sinks.Console"],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "App": "Information",
+        "System": "Warning",
+        "Microsoft": "Warning",
+        "Microsoft.AspNetCore.Authentication": "Information",
+        "Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker": "Error",
+        "Microsoft.Hosting.Lifetime": "Information"
+      }
+    },
+    "WriteTo:0": { "Name": "Console" },
+    "Enrich": ["FromLogContext", "WithMachineName"],
+    "Destructure": [
+      {
+        "Name": "ToMaximumDepth",
+        "Args": { "maximumDestructuringDepth": 4 }
+      },
+      {
+        "Name": "ToMaximumStringLength",
+        "Args": { "maximumStringLength": 100 }
+      },
+      {
+        "Name": "ToMaximumCollectionCount",
+        "Args": { "maximumCollectionCount": 10 }
+      }
+    ],
+    "Properties": {}
+  }
+}
+```
+
+### Sample appsettings.Development.json
+
+```json
+{
+  "Serilog": {
+    "Using:1": "Serilog.Sinks.Debug",
+    "Using:2": "Serilog.Sinks.File",
+    "MinimumLevel": {
+      "Default": "Debug",
+      "Override": {
+        "App": "Debug"
+      }
+    },
+    "WriteTo:1": { "Name": "Debug" },
+    "WriteTo:2": {
+      "Name": "File",
+      "Args": {
+        "path": "Logs/sample-.log",
+        "rollingInterval": "Day"
+      }
+    }
+    //"WriteTo:3": {
+    //  "Name": "Seq",
+    //  "Args": {
+    //    "serverUrl": "https://seq",
+    //    "apiKey": "ZrV42..."
+    //  }
+    //},
+  }
+}
+```
+
+### ASP.NETCore 6.0
+
+```csharp
+using NetLah.Extensions.Logging;
+
+AppLog.InitLogger();
+AppLog.Logger.LogInformation("Application starting...");
+try
+{
+    var builder = WebApplication.CreateBuilder(args);
+    builder.UseSerilog(logger => logger.LogInformation("Application initializing..."));
+
+    // Add services to the container.
+
+    builder.Services.AddControllers();
+
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();
+}
+catch (Exception ex)
+{
+    AppLog.Logger.LogCritical(ex, "Application terminated unexpectedly");
+}
+finally
+{
+    Serilog.Log.CloseAndFlush();
+}
+```
+
 ### ConsoleApp
 
-```
+```csharp
 using NetLah.Extensions.Logging;
 
 public static void Main(string[] args)
@@ -48,9 +156,9 @@ public static void Main(string[] args)
 }
 ```
 
-### ConsoleApp with dependency injection
+### ConsoleApp with Dependency Injection
 
-```
+```csharp
 using NetLah.Extensions.Logging;
 
 public static async Task Main(string[] args)
@@ -103,7 +211,7 @@ private class AsyncDisposable<TService> : IAsyncDisposable where TService : IDis
 
 ### AspNetCore or Hosting application
 
-```
+```csharp
 using NetLah.Extensions.Logging;
 
 public static void Main(string[] args)

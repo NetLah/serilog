@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Serilog;
@@ -9,29 +8,29 @@ namespace NetLah.Extensions.Logging
 {
     public static class AppLog
     {
-        private static Func<string, IFrameworkLogger> _loggerFactory = _ => NullLogger.Instance;
-        private static LazySerilogLoggerProvider _lazyLogger;
-        private static string _categoryName;
+        private static Func<string?, IFrameworkLogger> _loggerFactory = _ => NullLogger.Instance;
+        private static LazySerilogLoggerProvider? _lazyLogger;
+        private static string? _categoryName;
 
         public static IFrameworkLogger Logger => _loggerFactory(null);
 
-        public static IFrameworkLogger CreateLogger(string categoryName) => _loggerFactory(categoryName);
+        public static IFrameworkLogger CreateLogger(string? categoryName) => _loggerFactory(categoryName);
 
         public static string CategoryName => _categoryName ?? "App";
 
-        public static void InitLogger(string categoryName = null)
+        public static void InitLogger(string? categoryName = null)
             => InitLogger(lc => lc.MinimumLevel.Information()
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
             , categoryName);
 
-        public static void InitLogger(Action<LoggerConfiguration> configureLogger, string categoryName = null)
+        public static void InitLogger(Action<LoggerConfiguration> configureLogger, string? categoryName = null)
         {
             if (configureLogger == null)
                 throw new ArgumentNullException(nameof(configureLogger));
 
             if (string.IsNullOrWhiteSpace(categoryName)) categoryName = null;
-                _categoryName = categoryName;
+            _categoryName = categoryName;
 
             if (Log.Logger.GetType().Name == "SilentLogger")
             {
@@ -49,14 +48,14 @@ namespace NetLah.Extensions.Logging
         public static IFrameworkLogger CreateAppLogger<TCategoryName>(Action<LoggerConfiguration> configureLogger)
             => CreateAppLogger(configureLogger, typeof(TCategoryName).FullName);
 
-        public static IFrameworkLogger CreateAppLogger(IConfiguration configuration, string categoryName = null)
+        public static IFrameworkLogger CreateAppLogger(IConfiguration configuration, string? categoryName = null)
         {
             if (configuration == null)
                 throw new ArgumentNullException(nameof(configuration));
             return CreateAppLogger(lc => lc.ReadFrom.Configuration(configuration).Enrich.FromLogContext(), categoryName);
         }
 
-        public static IFrameworkLogger CreateAppLogger(Action<LoggerConfiguration> configureLogger, string categoryName = null)
+        public static IFrameworkLogger CreateAppLogger(Action<LoggerConfiguration> configureLogger, string? categoryName = null)
         {
             if (configureLogger == null)
                 throw new ArgumentNullException(nameof(configureLogger));

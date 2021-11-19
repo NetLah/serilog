@@ -7,11 +7,11 @@ namespace NetLah.Extensions.Logging
     internal class LazySerilogLoggerProvider
     {
         private readonly SerilogLoggerProvider _serilogLoggerProvider = new();
-        private IFrameworkLogger _logger;
-        private string _categoryName;
-        private ILogger _serilogLogger;
+        private IFrameworkLogger? _logger;
+        private string? _categoryName;
+        private ILogger? _serilogLogger;
 
-        public IFrameworkLogger GetLogger(string categoryName)
+        public IFrameworkLogger GetLogger(string? categoryName)
         {
             var serilogLogger = Log.Logger;
             var name = categoryName ?? AppLog.CategoryName;

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using Serilog;
@@ -99,6 +97,8 @@ namespace NetLah.Extensions.Logging.Serilog.Test
             mockSetupLoggerConfiguration.VerifyAll();
         }
 
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         [Fact]
         public void Init_Null_ConfigureLogger()
         {
@@ -133,5 +133,7 @@ namespace NetLah.Extensions.Logging.Serilog.Test
             var result = Assert.Throws<ArgumentNullException>(() => AppLog.CreateAppLogger((Action<LoggerConfiguration>)null));
             Assert.Equal("Value cannot be null. (Parameter 'configureLogger')", result.Message);
         }
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Hosting;
 using Moq;
 using Serilog;
 using Xunit;
@@ -10,8 +9,7 @@ namespace NetLah.Extensions.Logging.Serilog.Test
     [Collection(LoggerFixtureCollection.CollectionName)]
     public class HostBuilderExtensionsTest
     {
-        public HostBuilderExtensionsTest(LoggerFixture fixture) { }
-
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         [Fact]
         public void UseSerilog2_ActionFrameworkLogger_NullHostBuilder()
         {
@@ -25,6 +23,7 @@ namespace NetLah.Extensions.Logging.Serilog.Test
             var result = Assert.Throws<ArgumentNullException>(() => HostBuilderExtensions.UseSerilog2(null, (c, lc) => { }, null));
             Assert.Equal("Value cannot be null. (Parameter 'hostBuilder')", result.Message);
         }
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
         [Fact]
         public void UseSerilog2_ConfigureLogger_NullConfigureLogger()

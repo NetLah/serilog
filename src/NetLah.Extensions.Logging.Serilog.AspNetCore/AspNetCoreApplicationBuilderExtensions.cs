@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Serilog;
 using Serilog.Events;
 using FrameworkLogLevel = Microsoft.Extensions.Logging.LogLevel;

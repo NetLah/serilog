@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Xunit;
 
@@ -8,12 +7,12 @@ namespace NetLah.Extensions.Logging.Serilog.Test
     [Collection(LoggerFixtureCollection.CollectionName)]
     public class ServiceCollectionExtensionsTest
     {
-        public ServiceCollectionExtensionsTest(LoggerFixture fixture) { }
-
         [Fact]
         public void AddSerilog_NullServices()
         {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             var result = Assert.Throws<ArgumentNullException>(() => ServiceCollectionExtensions.AddSerilog(services: null));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             Assert.Equal("Value cannot be null. (Parameter 'services')", result.Message);
         }
 

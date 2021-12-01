@@ -1,12 +1,15 @@
+using NetLah.Diagnostics;
 using NetLah.Extensions.Logging;
 
 AppLog.InitLogger();
 AppLog.Logger.LogInformation("Application starting...");
-
 try
 {
+    var appInfo = ApplicationInfo.Initialize(null);
     var builder = WebApplication.CreateBuilder(args);
-    builder.UseSerilog(logger => logger.LogInformation("Application initializing..."));
+
+    builder.UseSerilog(logger => logger.LogInformation("Application initializing... AppTitle:{appTitle}; Version:{appVersion} BuildTime:{appBuildTime}; Framework:{frameworkName}",
+        appInfo.Title, appInfo.InformationalVersion, appInfo.BuildTimestampLocal, appInfo.FrameworkName));
 
     // Add services to the container.
 

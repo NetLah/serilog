@@ -1,10 +1,12 @@
 <Project>
 
   <PropertyGroup>
-    <FrameworkVersion>6.0.0</FrameworkVersion>
+    <FrameworkVersion>6.0.7</FrameworkVersion>
     <FrameworkBaselineVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'">3.1.8</FrameworkBaselineVersion>
     <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net5.0'">5.0.0</FrameworkBaselineVersion>
     <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net6.0'">6.0.0</FrameworkBaselineVersion>
+    <SwashbuckleVersion Condition="'$(TargetFramework)' != 'net6.0'">5.*</SwashbuckleVersion>
+    <SwashbuckleVersion Condition="'$(TargetFramework)' == 'net6.0'">6.*</SwashbuckleVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,7 +37,7 @@
     <PackageReference Update="xunit.runner.visualstudio" Version="2.*" PrivateAssets="All" />
 
     <!--serilog-->
-    <PackageReference Update="Serilog" Version="[2.10.0,3)" />
+    <PackageReference Update="Serilog" Version="[2.11.0,3)" />
     <PackageReference Update="Serilog.AspNetCore" Version="[5.0.0,6)" />
     <PackageReference Update="Serilog.Extensions.Logging" Version="[3.0.0,4)" />
     <PackageReference Update="Serilog.Settings.Configuration" Version="[3.0.0,4)" />
@@ -66,6 +68,7 @@
     <PackageReference Update="SkiaSharp.NativeAssets.NanoServer" Version="2.88.*" />
     <PackageReference Update="StackExchange.Redis" Version="2.*" />
     <PackageReference Update="TimeZoneConverter" Version="5.*" />
+    <PackageReference Update="YamlDotNet" Version="11.*" />
 
     <!--microsoft other-->
     <PackageReference Update="BenchmarkDotNet" Version="0.13.*" />
@@ -111,8 +114,8 @@
     <PackageReference Update="System.DirectoryServices.Protocols" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="System.Drawing.Common" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="System.Net.Http.Json" Version="$(FrameworkBaselineVersion)" />
-    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'" Version="5.0" />
-    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' == 'net6.0'" Version="$(FrameworkBaselineVersion)" />
+    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' == 'net5.0'" Version="5.0.0" />
+    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0'" Version="$(FrameworkBaselineVersion)" />
 
     <!--microsoft asp.net core-->
     <PackageReference Update="Microsoft.AspNetCore.Authentication.Facebook" Version="$(FrameworkBaselineVersion)" />
@@ -182,10 +185,10 @@
     <!--open api-->
     <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning" Version="5.*" />
     <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore" Version="6.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore.Swagger" Version="6.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerGen" Version="6.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerUI" Version="6.*" />
+    <PackageReference Update="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    <PackageReference Update="Swashbuckle.AspNetCore.Swagger" Version="$(SwashbuckleVersion)" />
+    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerGen" Version="$(SwashbuckleVersion)" />
+    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerUI" Version="$(SwashbuckleVersion)" />
 
     <!--wcf-->
     <PackageReference Update="SoapCore" Version="1.1.*" />

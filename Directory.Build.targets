@@ -1,10 +1,12 @@
 <Project>
 
   <PropertyGroup>
-    <CurrentFrameworkVersion>6.0.0</CurrentFrameworkVersion>
+    <CurrentFrameworkVersion>6.0.7</CurrentFrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'">3.1.*</FrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' == 'net5.0'">5.*</FrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' == 'net6.0'">6.*</FrameworkVersion>
+    <SwashbuckleVersion Condition="'$(TargetFramework)' != 'net6.0'">5.*</SwashbuckleVersion>
+    <SwashbuckleVersion Condition="'$(TargetFramework)' == 'net6.0'">6.*</SwashbuckleVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -77,6 +79,7 @@
     <PackageReference Update="SkiaSharp.NativeAssets.NanoServer" Version="2.88.*" />
     <PackageReference Update="StackExchange.Redis" Version="2.*" />
     <PackageReference Update="TimeZoneConverter" Version="5.*" />
+    <PackageReference Update="YamlDotNet" Version="11.*" />
 
     <!--microsoft other-->
     <PackageReference Update="BenchmarkDotNet" Version="0.13.*" />
@@ -121,8 +124,8 @@
     <PackageReference Update="System.DirectoryServices.Protocols" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Drawing.Common" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Net.Http.Json" Version="$(FrameworkVersion)" />
-    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'" Version="5.*" />
-    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' == 'net6.0'" Version="$(FrameworkVersion)" />
+    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' == 'net5.0'" Version="5.*" />
+    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0'" Version="$(FrameworkVersion)" />
 
     <!--microsoft asp.net core-->
     <PackageReference Update="Microsoft.AspNetCore.Authentication.Facebook" Version="$(FrameworkVersion)" />
@@ -192,10 +195,10 @@
     <!--open api-->
     <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning" Version="5.*" />
     <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore" Version="6.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore.Swagger" Version="6.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerGen" Version="6.*" />
-    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerUI" Version="6.*" />
+    <PackageReference Update="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    <PackageReference Update="Swashbuckle.AspNetCore.Swagger" Version="$(SwashbuckleVersion)" />
+    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerGen" Version="$(SwashbuckleVersion)" />
+    <PackageReference Update="Swashbuckle.AspNetCore.SwaggerUI" Version="$(SwashbuckleVersion)" />
 
     <!--wcf-->
     <PackageReference Update="SoapCore" Version="1.1.*" />

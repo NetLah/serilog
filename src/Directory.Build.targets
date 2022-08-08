@@ -35,13 +35,17 @@
     <PackageReference Update="TeamCity.VSTest.TestAdapter" Version="1.*" />
     <PackageReference Update="xunit" Version="2.*" />
     <PackageReference Update="xunit.runner.visualstudio" Version="2.*" PrivateAssets="All" />
-
+    
     <!--serilog-->
     <PackageReference Update="Serilog" Version="[2.11.0,3)" />
-    <PackageReference Update="Serilog.AspNetCore" Version="[5.0.0,6)" />
+    <PackageReference Update="Serilog.AspNetCore" Version="[6.0.0,7)" />
+    <PackageReference Update="Serilog.Extensions.Hosting" Version="[5.0.0,6)" />
     <PackageReference Update="Serilog.Extensions.Logging" Version="[3.0.0,4)" />
-    <PackageReference Update="Serilog.Settings.Configuration" Version="[3.0.0,4)" />
-    <PackageReference Update="Serilog.Sinks.Console" Version="[4.0.0,5)" />
+    <PackageReference Update="Serilog.Formatting.Compact" Version="[1.1.0,2)" />
+    <PackageReference Update="Serilog.Settings.Configuration" Version="[3.3.0,4)" />
+    <PackageReference Update="Serilog.Sinks.Console" Version="[4.0.1,5)" />
+    <PackageReference Update="Serilog.Sinks.Debug" Version="[2.0.0,3)" />
+    <PackageReference Update="Serilog.Sinks.File" Version="[5.0.0,6)" />
 
     <!--misc-->
     <PackageReference Update="AutoMapper" Version="[11.*,12)" />
@@ -115,7 +119,7 @@
     <PackageReference Update="System.Drawing.Common" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="System.Net.Http.Json" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' == 'net5.0'" Version="5.0.0" />
-    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0'" Version="$(FrameworkBaselineVersion)" />
+    <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0'" Version="6.0.0" />
 
     <!--microsoft asp.net core-->
     <PackageReference Update="Microsoft.AspNetCore.Authentication.Facebook" Version="$(FrameworkBaselineVersion)" />

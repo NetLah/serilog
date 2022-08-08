@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>NetLah.Extensions.Logging.Serilog.AspNetCore</PackageId>
     <PackageTags>log;logging;serilog;nlog;log4net;dotnet;netcore;aspnetcore;worker;worker-service</PackageTags>
-    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
     <Description>Initializing Serilog and wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` for ASP.NETCore and WorkerService</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../../NetLah.snk</AssemblyOriginatorKeyFile>

@@ -20,8 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D6C8A0E8-866
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{307AEF00-A196-43E6-8C31-8325F3859D4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi5", "samples\SampleWebApi5\SampleWebApi5.csproj", "{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog", "src\NetLah.Extensions.Logging.Serilog\NetLah.Extensions.Logging.Serilog.csproj", "{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Serilog.AspNetCore", "src\NetLah.Extensions.Logging.Serilog.AspNetCore\NetLah.Extensions.Logging.Serilog.AspNetCore.csproj", "{C2F54EB9-CDB1-4669-8BD8-28F5F9D5A0F0}"
@@ -32,7 +30,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleApp", "samples
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleAppDependencyInjection", "samples\SampleConsoleAppDependencyInjection\SampleConsoleAppDependencyInjection.csproj", "{068A9B74-0D51-4C99-B929-E64243BF5F52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWorkerService", "samples\SampleWorkerService\SampleWorkerService.csproj", "{1F7A9ED1-EC3A-4404-A426-50A4B2865750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWorkerService", "samples\SampleWorkerService\SampleWorkerService.csproj", "{1F7A9ED1-EC3A-4404-A426-50A4B2865750}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,10 +42,6 @@ Global
 		{307AEF00-A196-43E6-8C31-8325F3859D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{307AEF00-A196-43E6-8C31-8325F3859D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{307AEF00-A196-43E6-8C31-8325F3859D4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E3C0F50-7285-4C33-BAFA-DA9146ADD49F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU

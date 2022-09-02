@@ -16,6 +16,8 @@ namespace NetLah.Extensions.Logging
 
         public static IFrameworkLogger CreateLogger(string? categoryName) => _loggerFactory(categoryName);
 
+        public static IFrameworkLogger CreateLogger<TCategoryName>() => CreateLogger(GetCategoryName<TCategoryName>());
+
         public static string CategoryName => _categoryName ?? "App";
 
         public static void InitLogger(string? categoryName = null)
@@ -43,10 +45,10 @@ namespace NetLah.Extensions.Logging
         }
 
         public static IFrameworkLogger CreateAppLogger<TCategoryName>(IConfiguration configuration)
-            => CreateAppLogger(configuration, typeof(TCategoryName).FullName);
+            => CreateAppLogger(configuration, GetCategoryName<TCategoryName>());
 
         public static IFrameworkLogger CreateAppLogger<TCategoryName>(Action<LoggerConfiguration> configureLogger)
-            => CreateAppLogger(configureLogger, typeof(TCategoryName).FullName);
+            => CreateAppLogger(configureLogger, GetCategoryName<TCategoryName>());
 
         public static IFrameworkLogger CreateAppLogger(IConfiguration configuration, string? categoryName = null)
         {
@@ -71,6 +73,8 @@ namespace NetLah.Extensions.Logging
             logger.LogDebug("Logger has been initialized.");
             return logger;
         }
+
+        private static string? GetCategoryName<TCategoryName>() => GetCategoryName<TCategoryName>();
 
         private static void SetupLazyLogger()
         {

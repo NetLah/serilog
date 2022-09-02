@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\NetLah.Extensions.Logging.Reference\NetLah.Extensions.Logging.Reference.csproj" />
-    <ProjectReference Include="..\..\src\NetLah.Extensions.Logging.Serilog.AspNetCore\NetLah.Extensions.Logging.Serilog.AspNetCore.csproj" />
   </ItemGroup>
 
 </Project>

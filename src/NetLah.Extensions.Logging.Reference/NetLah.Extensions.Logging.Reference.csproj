@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>NetLah.Extensions.Logging.Reference</PackageId>
+    <PackageTags>log;logging;serilog;nlog;log4net;dotnet;netcore</PackageTags>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>GetAppLogLogger in the indirect reference way</Description>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../../NetLah.snk</AssemblyOriginatorKeyFile>
+    <RootNamespace>NetLah.Extensions.Logging</RootNamespace>
+    <AssemblyName>NetLah.Extensions.Logging.Reference</AssemblyName>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NetLah.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+
+</Project>

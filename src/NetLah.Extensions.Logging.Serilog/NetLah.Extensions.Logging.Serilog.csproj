@@ -21,7 +21,7 @@
   <ItemGroup>
     <PackageReference Include="NetLah.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" />
-    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
     <PackageReference Include="Serilog" />
     <PackageReference Include="Serilog.Extensions.Logging" />

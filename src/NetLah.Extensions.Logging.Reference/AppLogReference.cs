@@ -31,7 +31,7 @@ public static class AppLogReference
                 type.GetMethod("CreateLogger", new Type[] { typeof(string) }) is { } methodInfo &&
                 typeof(ILogger).IsAssignableFrom(methodInfo.ReturnType))
             {
-                return (Func<string?, ILogger?>)Delegate.CreateDelegate(typeof(Func<string?, ILogger?>), methodInfo);
+                return (Func<string?, ILogger?>)methodInfo.CreateDelegate(typeof(Func<string?, ILogger?>));
             }
         }
         catch

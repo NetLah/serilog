@@ -74,7 +74,7 @@ namespace NetLah.Extensions.Logging
             return logger;
         }
 
-        private static string? GetCategoryName<TCategoryName>() => GetCategoryName<TCategoryName>();
+        private static string? GetCategoryName<TCategoryName>() => typeof(TCategoryName).FullName;
 
         private static void SetupLazyLogger()
         {

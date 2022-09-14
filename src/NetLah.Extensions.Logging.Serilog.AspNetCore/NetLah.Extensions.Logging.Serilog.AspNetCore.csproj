@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NetLah.Abstractions" />
     <PackageReference Include="Serilog.AspNetCore" />
   </ItemGroup>
 

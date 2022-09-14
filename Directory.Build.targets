@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <CurrentFrameworkVersion>6.0.7</CurrentFrameworkVersion>
+    <CurrentFrameworkVersion>6.0.9</CurrentFrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'">3.1.*</FrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' == 'net5.0'">5.*</FrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' == 'net6.0'">6.*</FrameworkVersion>
@@ -17,16 +17,19 @@
     <PackageReference Update="Microsoft.SourceLink.Gitea" Version="1.*" PrivateAssets="All" />
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.*" PrivateAssets="All" />
 
-    <!--the netlah platform-->
-    <PackageReference Update="NetLah.Abstractions" Version="[0.*,1.0)" />
-    <PackageReference Update="NetLah.Extensions.Configuration" Version="[0.*,1.0)" />
-    <PackageReference Update="NetLah.Extensions.EventAggregator" Version="[0.*,1.0)" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="[0.*,1.0)" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="[0.*,1.0)" />
+    <!--the helpers -->
+    <PackageReference Update="NetLah.Abstractions" Version="[0.*-*,1)" />
+    <PackageReference Include="NetLah.AssemblyInfo.Build.Targets" Version="[0.*-*,1)" PrivateAssets="All" />
+    <PackageReference Update="NetLah.Extensions.Configuration" Version="[0.*,1)" />
+    <PackageReference Update="NetLah.Extensions.EventAggregator" Version="[0.*,1)" />
+    <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="[0.*,1)" />
+    <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="[0.*,1)" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="[0.*,1)" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="[0.*,1)" />
     <PackageReference Update="Testing.Dynamic.Json" Version="1.*-*" />
 
     <!--tests-->
-    <PackageReference Update="AngleSharp" Version="1.*-*" />
+    <PackageReference Update="AngleSharp" Version="*" />
     <PackageReference Update="coverlet.collector" Version="3.*" PrivateAssets="All" />
     <PackageReference Update="NUnit" Version="3.*" />
     <PackageReference Update="NUnit3TestAdapter" Version="4.*" PrivateAssets="All" />
@@ -37,7 +40,7 @@
     <PackageReference Update="xunit.runner.visualstudio" Version="2.*" PrivateAssets="All" />
 
     <!--serilog and nlog-->
-    <PackageReference Update="Serilog" Version="[2.11.*,3)" />
+    <PackageReference Update="Serilog" Version="[2.12.*-*,3)" />
     <PackageReference Update="Serilog.AspNetCore" Version="[6.*-*,7)" />
     <PackageReference Update="Serilog.Enrichers.Thread" Version="[3.*-*,4)" />
     <PackageReference Update="Serilog.Extensions.Hosting" Version="[5.*-*,6)" />
@@ -48,7 +51,7 @@
     <PackageReference Update="Serilog.Sinks.Console" Version="[4.*-*,5)" />
     <PackageReference Update="Serilog.Sinks.Debug" Version="[2.*-*,3)" />
     <PackageReference Update="Serilog.Sinks.File" Version="[5.*-*,6)" />
-    <PackageReference Update="Serilog.Sinks.PeriodicBatching" Version="[2.*-*,3)" />
+    <PackageReference Update="Serilog.Sinks.PeriodicBatching" Version="[3.*-*,4)" />
     <PackageReference Update="Serilog.Sinks.Seq" Version="[5.*-*,6)" />
     <PackageReference Update="NLog" Version="5.*" />
     <PackageReference Update="NLog.Extensions.Logging" Version="5.*" />
@@ -86,12 +89,11 @@
     <PackageReference Update="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(FrameworkVersion)" />
     <PackageReference Update="Microsoft.Extensions.CommandLineUtils" Version="1.*" />
-    <PackageReference Update="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.*" />
+    <PackageReference Update="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.*" />
     <PackageReference Update="Microsoft.VisualStudio.Threading" Version="17.*" />
     <PackageReference Update="System.Memory" Version="4.5.4" />
     <PackageReference Update="System.Runtime.Loader" Version="4.3.0" />
     <PackageReference Update="System.Runtime.Extensions" Version="4.3.1" />
-    <PackageReference Update="System.Text.Encoding.CodePages" Version="6.*" />
 
     <!--microsoft extensions-->
     <PackageReference Update="Microsoft.Extensions.ApiDescription.Server" Version="$(FrameworkVersion)" />
@@ -124,6 +126,7 @@
     <PackageReference Update="System.DirectoryServices.Protocols" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Drawing.Common" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Net.Http.Json" Version="$(FrameworkVersion)" />
+    <PackageReference Update="System.Text.Encoding.CodePages" Version="$(FrameworkVersion)" />
     <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' == 'net5.0'" Version="5.*" />
     <PackageReference Update="System.Text.Json" Condition="'$(TargetFramework)' != 'net5.0'" Version="6.*" />
 

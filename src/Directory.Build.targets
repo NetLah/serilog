@@ -1,8 +1,8 @@
 <Project>
 
   <PropertyGroup>
-    <CurrentFrameworkVersion>6.0.9</CurrentFrameworkVersion>
-    <FrameworkBaselineVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'">3.1.8</FrameworkBaselineVersion>
+    <FrameworkVersion>6.0.9</FrameworkVersion>
+    <FrameworkBaselineVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'">3.1.0</FrameworkBaselineVersion>
     <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net5.0'">5.0.0</FrameworkBaselineVersion>
     <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net6.0'">6.0.0</FrameworkBaselineVersion>
     <SwashbuckleVersion Condition="'$(TargetFramework)' != 'net6.0'">5.*</SwashbuckleVersion>
@@ -19,7 +19,7 @@
 
     <!--the helpers -->
     <PackageReference Update="NetLah.Abstractions" Version="[0.2.0,1)" />
-    <PackageReference Include="NetLah.AssemblyInfo.Build.Targets" Version="[0.2.0-rc1,1)" PrivateAssets="All" />
+    <PackageReference Include="NetLah.AssemblyInfo.BuildTime.Target" Version="[0.*-*,1)" PrivateAssets="All" />
     <PackageReference Update="NetLah.Extensions.Configuration" Version="[0.2.0,1)" />
     <PackageReference Update="NetLah.Extensions.EventAggregator" Version="[0.2.0,1)" />
     <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="[0.2.0,1)" />
@@ -47,8 +47,8 @@
     <PackageReference Update="Serilog.Extensions.Logging" Version="[3.0.0,4)" />
     <PackageReference Update="Serilog.Formatting.Compact" Version="[1.1.0,2)" />
     <PackageReference Update="Serilog.Settings.Configuration" Version="[3.3.0,4)" />
-    <PackageReference Update="Serilog.Sinks.AzureAnalytics" Version="[4.*,5)" />
-    <PackageReference Update="Serilog.Sinks.Console" Version="[4.0.1,5)" />
+    <PackageReference Update="Serilog.Sinks.AzureAnalytics" Version="[4.0.0,5)" />
+    <PackageReference Update="Serilog.Sinks.Console" Version="[4.0.0,5)" />
     <PackageReference Update="Serilog.Sinks.Debug" Version="[2.0.0,3)" />
     <PackageReference Update="Serilog.Sinks.File" Version="[5.0.0,6)" />
     <PackageReference Update="Serilog.Sinks.PeriodicBatching" Version="[3.0.0,4)" />

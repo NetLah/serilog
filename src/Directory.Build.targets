@@ -109,6 +109,8 @@
     <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.DependencyModel" Version="$(FrameworkBaselineVersion)" />
+    <!--<PackageReference Update="Microsoft.Extensions.DependencyModel" Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0'" Version="3.1.0" />-->
+    <!--<PackageReference Update="Microsoft.Extensions.DependencyModel" Condition="'$(TargetFramework)' == 'net5.0' Or '$(TargetFramework)' == 'net6.0'" Version="$(FrameworkBaselineVersion)" />-->
     <PackageReference Update="Microsoft.Extensions.Hosting" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.WindowsServices" Version="$(FrameworkBaselineVersion)" />

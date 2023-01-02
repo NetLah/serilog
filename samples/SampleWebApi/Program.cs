@@ -5,7 +5,7 @@ AppLog.InitLogger();
 AppLog.Logger.LogInformation("Application starting...");
 try
 {
-    var appInfo = ApplicationInfo.Initialize(null);
+    var appInfo = ApplicationInfo.TryInitialize(null);
     var builder = WebApplication.CreateBuilder(args);
 
     builder.UseSerilog(logger => logger.LogInformation("Application initializing... AppTitle:{appTitle}; Version:{appVersion} BuildTime:{appBuildTime}; Framework:{frameworkName}",

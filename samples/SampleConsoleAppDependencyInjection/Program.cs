@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NetLah.Diagnostics;
 using NetLah.Extensions.Configuration;
 using NetLah.Extensions.Logging;
 using SampleConsoleAppDependencyInjection;
@@ -8,10 +9,13 @@ using SampleConsoleAppDependencyInjection;
 AppLog.InitLogger();
 try
 {
+    var appInfo = ApplicationInfo.TryInitialize(null);
     AppLog.Logger.LogInformation("Application configure...");   // write log console only
 
     var configuration = ConfigurationBuilderBuilder.Create<Program>(args).Build();
     var logger = AppLog.CreateAppLogger<Program>(configuration);
+    logger.LogInformation("Application initializing... AppTitle:{appTitle}; Version:{appVersion} BuildTime:{appBuildTime}; Framework:{frameworkName}",
+        appInfo.Title, appInfo.InformationalVersion, appInfo.BuildTimestampLocal, appInfo.FrameworkName);
     logger.LogInformation("Service configure...");      // write log to sinks
 
     IServiceCollection services = new ServiceCollection();
@@ -34,24 +38,4 @@ catch (Exception ex)
 finally
 {
     Serilog.Log.CloseAndFlush();
-}
-
-internal class AsyncDisposable<TService> : IAsyncDisposable where TService : IDisposable
-{
-    public AsyncDisposable(TService service) => this.Service = service;
-
-    public TService Service { get; }
-
-    public ValueTask DisposeAsync()
-    {
-        if (Service is IAsyncDisposable asyncDisposable)
-            return asyncDisposable.DisposeAsync();
-
-        Service.Dispose();
-#if NETCOREAPP3_1
-        return new ValueTask(Task.CompletedTask);
-#else
-        return ValueTask.CompletedTask;
-#endif
-    }
 }

@@ -16,7 +16,7 @@ namespace NetLah.Extensions.Logging.Serilog.Test
         private static IConfiguration GetConfig()
         {
             var configurationBuilder = new ConfigurationBuilder()
-                .AddInMemoryCollection(new Dictionary<string, string> { ["key"] = "value" });
+                .AddInMemoryCollection(new Dictionary<string, string?> { ["key"] = "value" });
             var configuration = configurationBuilder.Build();
             return configuration;
         }

@@ -25,9 +25,9 @@
     <PackageReference Update="NetLah.Extensions.Configuration" Version="[0.2.2,1)" />
     <PackageReference Update="NetLah.Extensions.EventAggregator" Version="[0.2.0,1)" />
     <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="[0.2.1,1)" />
-    <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="[0.2.3,1)" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="[0.2.3,1)" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="[0.2.3,1)" />
+    <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="[0.2.4,1)" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="[0.2.4,1)" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="[0.2.4,1)" />
     <PackageReference Update="NetLah.Extensions.SpaServices.Hosting" Version="[0.1.0-rc2,1)" />
     <PackageReference Update="Testing.Dynamic.Json" Version="1.*-*" />
 

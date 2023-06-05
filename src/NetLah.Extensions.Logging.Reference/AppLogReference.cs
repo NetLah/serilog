@@ -6,7 +6,10 @@ public static class AppLogReference
 {
     private static readonly Lazy<Func<string?, ILogger?>> _lazyDelegate = new(DelegateFactory);
 
-    public static ILogger? GetAppLogLogger<TCategoryName>() => GetAppLogLogger(typeof(TCategoryName).FullName);
+    public static ILogger? GetAppLogLogger<TCategoryName>()
+    {
+        return GetAppLogLogger(typeof(TCategoryName).FullName);
+    }
 
     public static ILogger? GetAppLogLogger(string? categoryName = "App")
     {

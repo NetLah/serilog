@@ -7,6 +7,7 @@ using NetLah.Extensions.Logging;
 using SampleConsoleAppDependencyInjection;
 
 AppLog.InitLogger();
+
 try
 {
     var appInfo = ApplicationInfo.TryInitialize(null);

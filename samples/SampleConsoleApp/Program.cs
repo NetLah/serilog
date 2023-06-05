@@ -3,6 +3,7 @@ using NetLah.Extensions.Configuration;
 using NetLah.Extensions.Logging;
 
 AppLog.InitLogger();
+
 try
 {
     AppLog.Logger.LogInformation("Application configure...");   // write log console only

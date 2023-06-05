@@ -2,7 +2,10 @@
 
 internal class AsyncDisposable<TService> : IAsyncDisposable where TService : IDisposable
 {
-    public AsyncDisposable(TService service) => this.Service = service;
+    public AsyncDisposable(TService service)
+    {
+        Service = service;
+    }
 
     public TService Service { get; }
 

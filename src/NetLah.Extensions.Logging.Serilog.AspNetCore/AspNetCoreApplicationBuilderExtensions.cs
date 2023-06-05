@@ -24,14 +24,11 @@ public static class AspNetCoreApplicationBuilderExtensions
             FrameworkLogLevel.Critical => LogEventLevel.Fatal,
             _ => throw new NotSupportedException("Loglevel " + logLevel),
         };
-
-#pragma warning disable S3358 // Ternary operators should not be nested
         return applicationBuilder.UseSerilogRequestLogging(
             opt => opt.GetLevel =
                 (c, d, e) =>
                     e != null || c.Response.StatusCode >= 500
                     ? LogEventLevel.Error
                     : (d >= 500.0 ? LogEventLevel.Warning : logEventLevel));
-#pragma warning restore S3358 // Ternary operators should not be nested
     }
 }

@@ -2,7 +2,9 @@ using NetLah.Diagnostics;
 using NetLah.Extensions.Logging;
 
 AppLog.InitLogger();
+
 AppLog.Logger.LogInformation("Application starting...");
+
 try
 {
     var appInfo = ApplicationInfo.TryInitialize(null);

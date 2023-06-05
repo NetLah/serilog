@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Serilog;
+using Serilog.Events;
 using IFrameworkLogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace NetLah.Extensions.Logging;
@@ -28,9 +29,15 @@ public static class AppLog
 
     public static void InitLogger(string? categoryName = null)
     {
-        InitLogger(lc => lc.MinimumLevel.Information()
-            .Enrich.FromLogContext()
-            .WriteTo.Console()
+        InitLogger(logEventLevel: LogEventLevel.Information, categoryName: categoryName);
+    }
+
+    public static void InitLogger(LogEventLevel logEventLevel, string? categoryName = null)
+    {
+        InitLogger(
+            lc => lc.MinimumLevel.Is(logEventLevel)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
             , categoryName);
     }
 

@@ -1,7 +1,8 @@
 using NetLah.Diagnostics;
 using NetLah.Extensions.Logging;
+using Serilog.Events;
 
-AppLog.InitLogger();
+AppLog.InitLogger(LogEventLevel.Information);
 
 AppLog.Logger.LogInformation("Application starting...");
 

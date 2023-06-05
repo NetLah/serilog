@@ -55,6 +55,20 @@ public class AppLogTest
     }
 
     [Fact]
+    public void InitLogger_Info_Test()
+    {
+        _fixture.ResetLogger();
+
+        AppLog.InitLogger(global::Serilog.Events.LogEventLevel.Information, "Test");
+        var logger2 = AppLog.Logger;
+        Assert.NotNull(logger2);
+
+        AppLog.InitLogger(global::Serilog.Events.LogEventLevel.Debug, "Test");
+        var logger3 = AppLog.Logger;
+        Assert.Same(logger3, logger2);
+    }
+
+    [Fact]
     public void CreateAppLogger_Type_Config()
     {
         var logger4a = AppLog.CreateAppLogger<AppLogTest>(GetConfig());

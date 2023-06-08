@@ -1,15 +1,17 @@
 <Project>
 
   <PropertyGroup>
-    <CurrentFrameworkVersion>6.0.14</CurrentFrameworkVersion>
-    <FrameworkBaselineVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0' And '$(TargetFramework)' != 'net7.0' And '$(TargetFramework)' != 'net6.0-windows'">3.1.0</FrameworkBaselineVersion>
-    <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net5.0'">5.0.0</FrameworkBaselineVersion>
-    <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net6.0-windows'">6.0.0</FrameworkBaselineVersion>
-    <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net7.0'">7.0.0</FrameworkBaselineVersion>
-    <SystemTextJsonVersion Condition="'$(TargetFramework)' != 'net6.0' And '$(TargetFramework)' != 'net7.0' And '$(TargetFramework)' != 'net6.0-windows'">5.0.0</SystemTextJsonVersion>
-    <SystemTextJsonVersion Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net7.0' Or '$(TargetFramework)' == 'net6.0-windows'">$(FrameworkBaselineVersion)</SystemTextJsonVersion>
-    <SwashbuckleVersion Condition="'$(TargetFramework)' != 'net6.0' And '$(TargetFramework)' != 'net7.0'">5.0.0</SwashbuckleVersion>
-    <SwashbuckleVersion Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net7.0'">6.0.0</SwashbuckleVersion>
+    <CurrentFrameworkVersion>6.0.16</CurrentFrameworkVersion>
+    <MinFrameworkVersion>7.0.0</MinFrameworkVersion>
+    <FrameworkBaselineVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0' And '$(TargetFramework)' != 'net7.0' And '$(TargetFramework)' != 'net8.0' And '$(TargetFramework)' != 'net6.0-windows'">$(MinFrameworkVersion)</FrameworkBaselineVersion>
+    <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net5.0'">$(MinFrameworkVersion)</FrameworkBaselineVersion>
+    <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net6.0-windows'">$(MinFrameworkVersion)</FrameworkBaselineVersion>
+    <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net7.0'">$(MinFrameworkVersion)</FrameworkBaselineVersion>
+    <FrameworkBaselineVersion Condition="'$(TargetFramework)' == 'net8.0'">8.0.0-*</FrameworkBaselineVersion>
+    <SystemTextJsonVersion Condition="'$(TargetFramework)' != 'net6.0' And '$(TargetFramework)' != 'net7.0' And '$(TargetFramework)' != 'net8.0' And '$(TargetFramework)' != 'net6.0-windows'">5.0.0</SystemTextJsonVersion>
+    <SystemTextJsonVersion Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net7.0' Or '$(TargetFramework)' == 'net8.0' Or '$(TargetFramework)' == 'net6.0-windows'">$(FrameworkBaselineVersion)</SystemTextJsonVersion>
+    <SwashbuckleVersion Condition="'$(TargetFramework)' != 'net6.0' And '$(TargetFramework)' != 'net7.0' And '$(TargetFramework)' != 'net8.0'">5.0.0</SwashbuckleVersion>
+    <SwashbuckleVersion Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net7.0' Or '$(TargetFramework)' == 'net8.0'">6.0.0</SwashbuckleVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +22,7 @@
 
     <!--the helpers -->
     <PackageReference Update="NetLah.Abstractions" Version="[0.2.1,1)" />
-    <PackageReference Include="NetLah.AssemblyInfo.BuildTime.Target" Version="[0.2.0,1)" PrivateAssets="All" />
+    <PackageReference Include="NetLah.AssemblyInfo.BuildTime.Target" Version="1.*" PrivateAssets="All" />
     <PackageReference Update="NetLah.Extensions.CommandLineUtils" Version="0.1.0-a1.2" />
     <PackageReference Update="NetLah.Extensions.Configuration" Version="[0.2.2,1)" />
     <PackageReference Update="NetLah.Extensions.EventAggregator" Version="[0.2.1,1)" />
@@ -33,7 +35,7 @@
 
     <!--tests-->
     <PackageReference Update="AngleSharp" Version="*" />
-    <PackageReference Update="coverlet.collector" Version="3.*" PrivateAssets="All" />
+    <PackageReference Update="coverlet.collector" Version="6.*" PrivateAssets="All" />
     <PackageReference Update="NUnit" Version="3.*" />
     <PackageReference Update="NUnit3TestAdapter" Version="4.*" PrivateAssets="All" />
     <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.*" />
@@ -43,19 +45,19 @@
     <PackageReference Update="xunit.runner.visualstudio" Version="2.*" PrivateAssets="All" />
 
     <!--serilog-->
-    <PackageReference Update="Serilog" Version="[2.10.0,3)" />
-    <PackageReference Update="Serilog.AspNetCore" Version="[6.0.0,7)" />
-    <PackageReference Update="Serilog.Enrichers.Thread" Version="[3.1.0,4)" />
-    <PackageReference Update="Serilog.Extensions.Hosting" Version="[5.0.0,6)" />
-    <PackageReference Update="Serilog.Extensions.Logging" Version="[3.1.0,4)" />
-    <PackageReference Update="Serilog.Formatting.Compact" Version="[1.1.0,2)" />
-    <PackageReference Update="Serilog.Settings.Configuration" Version="[3.0.0,4)" />
-    <PackageReference Update="Serilog.Sinks.AzureAnalytics" Version="[4.7.0,5)" />
-    <PackageReference Update="Serilog.Sinks.Console" Version="[4.0.0,5)" />
-    <PackageReference Update="Serilog.Sinks.Debug" Version="[2.0.0,3)" />
-    <PackageReference Update="Serilog.Sinks.File" Version="[5.0.0,6)" />
-    <PackageReference Update="Serilog.Sinks.PeriodicBatching" Version="[3.0.0,4)" />
-    <PackageReference Update="Serilog.Sinks.Seq" Version="[5.0.0,6)" />
+    <PackageReference Update="Serilog" Version="2.12.0" />
+    <PackageReference Update="Serilog.AspNetCore" Version="7.0.0" />
+    <PackageReference Update="Serilog.Enrichers.Thread" Version="3.1.0" />
+    <PackageReference Update="Serilog.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Update="Serilog.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Update="Serilog.Formatting.Compact" Version="1.1.0" />
+    <PackageReference Update="Serilog.Settings.Configuration" Version="7.0.0" />
+    <PackageReference Update="Serilog.Sinks.AzureAnalytics" Version="4.8.0" />
+    <PackageReference Update="Serilog.Sinks.Console" Version="4.0.0" />
+    <PackageReference Update="Serilog.Sinks.Debug" Version="2.0.0" />
+    <PackageReference Update="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Update="Serilog.Sinks.PeriodicBatching" Version="3.0.0" />
+    <PackageReference Update="Serilog.Sinks.Seq" Version="5.0.0" />
 
     <!--misc-->
     <PackageReference Update="AutoMapper" Version="[11.0.0,12)" />
@@ -115,6 +117,7 @@
     <PackageReference Update="Microsoft.Extensions.DependencyModel" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="$(FrameworkBaselineVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Hosting.Systemd" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Hosting.WindowsServices" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Logging" Version="$(FrameworkBaselineVersion)" />
     <PackageReference Update="Microsoft.Extensions.Logging.Abstractions" Version="$(FrameworkBaselineVersion)" />

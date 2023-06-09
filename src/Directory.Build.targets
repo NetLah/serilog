@@ -24,7 +24,7 @@
     <PackageReference Update="NetLah.Abstractions" Version="[0.2.1,1)" />
     <PackageReference Include="NetLah.AssemblyInfo.BuildTime.Target" Version="1.*" PrivateAssets="All" />
     <PackageReference Update="NetLah.Extensions.CommandLineUtils" Version="0.1.0-a1.2" />
-    <PackageReference Update="NetLah.Extensions.Configuration" Version="[0.2.2,1)" />
+    <PackageReference Update="NetLah.Extensions.Configuration" Version="[0.3.*-*,0.4)" />
     <PackageReference Update="NetLah.Extensions.EventAggregator" Version="[0.2.1,1)" />
     <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="[0.2.6,1)" />
     <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="[0.2.4,1)" />

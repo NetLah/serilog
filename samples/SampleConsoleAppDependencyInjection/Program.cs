@@ -10,14 +10,26 @@ AppLog.InitLogger();
 
 try
 {
-    var appInfo = ApplicationInfo.TryInitialize(null);
     AppLog.Logger.LogInformation("Application configure...");   // write log console only
 
     var configuration = ConfigurationBuilderBuilder.Create<Program>(args).Build();
     var logger = AppLog.CreateAppLogger<Program>(configuration);
+
+    // write log to sinks
+
+    var appInfo = ApplicationInfo.Initialize(null);
     logger.LogInformation("Application initializing... AppTitle:{appTitle}; Version:{appVersion} BuildTime:{appBuildTime}; Framework:{frameworkName}",
         appInfo.Title, appInfo.InformationalVersion, appInfo.BuildTimestampLocal, appInfo.FrameworkName);
-    logger.LogInformation("Service configure...");      // write log to sinks
+
+    var asmConfigurationBinder = new AssemblyInfo(typeof(ConfigurationBinder).Assembly);
+    logger.LogInformation("AssemblyTitle:{appTitle}; Version:{appVersion} Framework:{frameworkName}",
+        asmConfigurationBinder.Title, asmConfigurationBinder.InformationalVersion, asmConfigurationBinder.FrameworkName);
+
+    var asmLoggerFactory = new AssemblyInfo(typeof(LoggerFactory).Assembly);
+    logger.LogInformation("AssemblyTitle:{appTitle}; Version:{appVersion} Framework:{frameworkName}",
+        asmLoggerFactory.Title, asmLoggerFactory.InformationalVersion, asmLoggerFactory.FrameworkName);
+
+    logger.LogInformation("Service configure...");
 
     IServiceCollection services = new ServiceCollection();
     services.AddSingleton<IConfiguration>(configuration);

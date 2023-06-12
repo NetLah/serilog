@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SampleConsoleApp7": {
+      "commandName": "Project",
+      "workingDirectory": ".",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

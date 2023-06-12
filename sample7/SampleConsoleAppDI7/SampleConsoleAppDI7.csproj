@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net8.0;net7.0;net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net7.0;net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -13,8 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\SampleConsoleApp\appsettings.Development.json" Link="appsettings.Development.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\SampleConsoleApp\appsettings.json" Link="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="..\..\samples\SampleConsoleAppDependencyInjection\AsyncDisposable.cs" Link="AsyncDisposable.cs" />
+    <Compile Include="..\..\samples\SampleConsoleAppDependencyInjection\Program.cs" Link="Program.cs" />
+    <Compile Include="..\..\samples\SampleConsoleAppDependencyInjection\Runner.cs" Link="Runner.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\samples\SampleConsoleApp\appsettings.Development.json" Link="appsettings.Development.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\..\samples\SampleConsoleApp\appsettings.json" Link="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

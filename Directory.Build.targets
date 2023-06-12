@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <CurrentFrameworkVersion>6.0.16</CurrentFrameworkVersion>
-    <MinFrameworkVersion>7.*</MinFrameworkVersion>
+    <MinFrameworkVersion>8.*-*</MinFrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' != 'net5.0' And '$(TargetFramework)' != 'net6.0' And '$(TargetFramework)' != 'net7.0' And '$(TargetFramework)' != 'net8.0' And '$(TargetFramework)' != 'net6.0-windows'">$(MinFrameworkVersion)</FrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' == 'net5.0'">$(MinFrameworkVersion)</FrameworkVersion>
     <FrameworkVersion Condition="'$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net6.0-windows'">$(MinFrameworkVersion)</FrameworkVersion>

@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		DevNotes.md = DevNotes.md
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
-		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -18,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D6C8A0E8-866
 	ProjectSection(SolutionItems) = preProject
 		src\Directory.Build.targets = src\Directory.Build.targets
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7ECD3F17-05A7-4A7C-9A95-C8C75D73EA49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{2D574F61-A8A3-409A-9041-171544CAA477}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{307AEF00-A196-43E6-8C31-8325F3859D4D}"
 EndProject
@@ -84,9 +87,15 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{307AEF00-A196-43E6-8C31-8325F3859D4D} = {2D574F61-A8A3-409A-9041-171544CAA477}
 		{DFBE0A58-EC88-44BC-825A-F7B552A179BE} = {D6C8A0E8-866A-4980-8717-4237516B791F}
 		{350B0C73-C1A2-428A-A84F-7AE0B35FC5FD} = {D6C8A0E8-866A-4980-8717-4237516B791F}
 		{C2F54EB9-CDB1-4669-8BD8-28F5F9D5A0F0} = {D6C8A0E8-866A-4980-8717-4237516B791F}
+		{D676EAD1-12D0-45A5-87F3-5E3F80D31FD1} = {7ECD3F17-05A7-4A7C-9A95-C8C75D73EA49}
+		{A853F0CC-4F53-4051-849B-2376FBFA9801} = {2D574F61-A8A3-409A-9041-171544CAA477}
+		{068A9B74-0D51-4C99-B929-E64243BF5F52} = {2D574F61-A8A3-409A-9041-171544CAA477}
+		{1F7A9ED1-EC3A-4404-A426-50A4B2865750} = {2D574F61-A8A3-409A-9041-171544CAA477}
+		{759D3749-BAB0-4B21-AEAF-B5522C54B02A} = {7ECD3F17-05A7-4A7C-9A95-C8C75D73EA49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {756FF949-EAAC-4047-89DB-EB559A767C6C}

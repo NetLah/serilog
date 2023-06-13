@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>NetLah.Extensions.Logging.Serilog.AspNetCore</PackageId>
-    <PackageTags>log;logging;serilog;nlog;log4net;dotnet;netcore;aspnetcore;worker;worker-service</PackageTags>
+    <PackageTags>logging;serilog;dotnet;netcore;aspnetcore;worker;worker-service</PackageTags>
     <TargetFrameworks>net8.0;net7.0;net6.0;netcoreapp3.1</TargetFrameworks>
     <Description>Initializing Serilog and wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` for ASP.NETCore and WorkerService</Description>
     <SignAssembly>true</SignAssembly>
@@ -11,6 +11,7 @@
     <AssemblyName>NetLah.Extensions.Logging.Serilog.AspNetCore</AssemblyName>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <ItemGroup>

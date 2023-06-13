@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <PackageId>NetLah.Extensions.Logging.Reference</PackageId>
-    <PackageTags>log;logging;serilog;nlog;log4net;dotnet;netcore;applog;app-log</PackageTags>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageTags>logging;serilog;dotnet;netcore;applog;app-log</PackageTags>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Description>GetAppLogLogger in the indirect reference way</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../../NetLah.snk</AssemblyOriginatorKeyFile>

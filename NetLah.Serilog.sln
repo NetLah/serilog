@@ -3,6 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{2D574F61-A8A3-409A-9041-171544CAA477}"
+	ProjectSection(SolutionItems) = preProject
+		samples\Directory.Build.props = samples\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples7", "samples7", "{29D9BC81-0F7D-4046-856D-30172EA3CD67}"
+	ProjectSection(SolutionItems) = preProject
+		sample7\Directory.Build.props = sample7\Directory.Build.props
+		sample7\Directory.Build.targets = sample7\Directory.Build.targets
+	EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43ECBF11-5D83-49DE-BE0A-1A8B4E254A3B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -19,8 +30,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D6C8A0E8-866
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7ECD3F17-05A7-4A7C-9A95-C8C75D73EA49}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{2D574F61-A8A3-409A-9041-171544CAA477}"
+	ProjectSection(SolutionItems) = preProject
+		test\Directory.Build.props = test\Directory.Build.props
+		test\Directory.Build.targets = test\Directory.Build.targets
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{307AEF00-A196-43E6-8C31-8325F3859D4D}"
 EndProject
@@ -40,11 +53,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWorkerService", "samp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetLah.Extensions.Logging.Reference.Test", "test\NetLah.Extensions.Logging.Reference.Test\NetLah.Extensions.Logging.Reference.Test.csproj", "{759D3749-BAB0-4B21-AEAF-B5522C54B02A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples7", "samples7", "{29D9BC81-0F7D-4046-856D-30172EA3CD67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleApp7", "sample7\SampleConsoleApp7\SampleConsoleApp7.csproj", "{AAC70FC1-FD5B-401C-885E-F90CFC63D008}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsoleApp7", "sample7\SampleConsoleApp7\SampleConsoleApp7.csproj", "{AAC70FC1-FD5B-401C-885E-F90CFC63D008}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleConsoleAppDI7", "sample7\SampleConsoleAppDI7\SampleConsoleAppDI7.csproj", "{84839BA7-DE35-4660-9555-D73F5AB07C7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleAppDI7", "sample7\SampleConsoleAppDI7\SampleConsoleAppDI7.csproj", "{84839BA7-DE35-4660-9555-D73F5AB07C7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -14,6 +14,15 @@ try
     builder.UseSerilog(logger => logger.LogInformation("Application initializing... AppTitle:{appTitle}; Version:{appVersion} BuildTime:{appBuildTime}; Framework:{frameworkName}",
         appInfo.Title, appInfo.InformationalVersion, appInfo.BuildTimestampLocal, appInfo.FrameworkName));
 
+    var logger = AppLog.Logger;
+    var asmConfigurationBinder = new AssemblyInfo(typeof(ConfigurationBinder).Assembly);
+    logger.LogInformation("AssemblyTitle:{appTitle}; Version:{appVersion} Framework:{frameworkName}",
+        asmConfigurationBinder.Title, asmConfigurationBinder.InformationalVersion, asmConfigurationBinder.FrameworkName);
+
+    var asmLoggerFactory = new AssemblyInfo(typeof(LoggerFactory).Assembly);
+    logger.LogInformation("AssemblyTitle:{appTitle}; Version:{appVersion} Framework:{frameworkName}",
+        asmLoggerFactory.Title, asmLoggerFactory.InformationalVersion, asmLoggerFactory.FrameworkName);
+
     // Add services to the container.
 
     builder.Services.AddControllers();

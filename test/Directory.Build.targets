@@ -1,9 +1,0 @@
-<Project>
-
-  <PropertyGroup>
-    <MinFrameworkVersion Condition="'$(TargetFramework)' != 'net8.0'">7.*</MinFrameworkVersion>
-  </PropertyGroup>
-  
- <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))" /> 
-  
-</Project>

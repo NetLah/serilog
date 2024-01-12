@@ -9,16 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{2D57
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples7", "samples7", "{29D9BC81-0F7D-4046-856D-30172EA3CD67}"
-	ProjectSection(SolutionItems) = preProject
-		sample7\Directory.Build.props = sample7\Directory.Build.props
-		sample7\Directory.Build.targets = sample7\Directory.Build.targets
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43ECBF11-5D83-49DE-BE0A-1A8B4E254A3B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.azure\pipelines\azure-pipelines.yml = .azure\pipelines\azure-pipelines.yml
+		Common.props = Common.props
 		DevNotes.md = DevNotes.md
+		Directory.Build.override.targets = Directory.Build.override.targets
+		Directory.Build.pre.targets = Directory.Build.pre.targets
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 		README.md = README.md
@@ -26,13 +25,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D6C8A0E8-866A-4980-8717-4237516B791F}"
 	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.override.targets = src\Directory.Build.override.targets
 		src\Directory.Build.targets = src\Directory.Build.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7ECD3F17-05A7-4A7C-9A95-C8C75D73EA49}"
 	ProjectSection(SolutionItems) = preProject
 		test\Directory.Build.props = test\Directory.Build.props
-		test\Directory.Build.targets = test\Directory.Build.targets
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApi", "samples\SampleWebApi\SampleWebApi.csproj", "{307AEF00-A196-43E6-8C31-8325F3859D4D}"

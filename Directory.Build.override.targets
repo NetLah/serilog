@@ -1,0 +1,6 @@
+<Project>
+
+  <ItemGroup Condition="'$(NET_5_0_LESS)' == true">
+  </ItemGroup>
+
+</Project>

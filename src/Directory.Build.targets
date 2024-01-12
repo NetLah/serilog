@@ -2,7 +2,7 @@
 
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)'))" />
 
-  <Import Project="$(MSBuildThisFileDirectory)Directory.Build.pre.targets" Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.pre.targets')" />
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Build.initial.targets" Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.initial.targets')" />
 
   <PropertyGroup Condition="'$(LatestDevFrameworkVersion)' == ''">
     <LatestDevFrameworkVersion>9.*-*</LatestDevFrameworkVersion>

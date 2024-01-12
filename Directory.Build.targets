@@ -2,7 +2,7 @@
 
   <Import Project="$(MSBuildThisFileDirectory)Common.props" Condition="'$(ImportedCommonProps)' == ''" />
 
-  <Import Project="$(MSBuildThisFileDirectory)Directory.Build.pre.targets" Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.pre.targets')" />
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Build.initial.targets" Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.initial.targets')" />
 
   <PropertyGroup Condition="'$(LatestDevFrameworkVersion)' == ''">
     <LatestDevFrameworkVersion>9.*-*</LatestDevFrameworkVersion>
@@ -34,6 +34,8 @@
   <PropertyGroup>
     <SystemTextJsonVersion Condition="'$(SystemTextJsonVersion)' == '' And '$(NET_5_0_LESS)' == true">8.*</SystemTextJsonVersion>
     <SystemTextJsonVersion Condition="'$(SystemTextJsonVersion)' == ''">$(FrameworkVersion)</SystemTextJsonVersion>
+    <SwashbuckleVersion Condition="'$(SwashbuckleVersion)' == '' And '$(NET_5_0_LESS)' == true">6.3.1</SwashbuckleVersion>
+    <SwashbuckleVersion Condition="'$(SwashbuckleVersion)' == '' And '$(NET_6_0)' == true">6.4.*</SwashbuckleVersion>
     <SwashbuckleVersion Condition="'$(SwashbuckleVersion)' == ''">6.*</SwashbuckleVersion>
   </PropertyGroup>
 

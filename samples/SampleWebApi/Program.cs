@@ -1,5 +1,6 @@
 using NetLah.Diagnostics;
 using NetLah.Extensions.Logging;
+using Serilog;
 using Serilog.Events;
 
 AppLog.InitLogger(LogEventLevel.Information);
@@ -22,6 +23,10 @@ try
     var asmLoggerFactory = new AssemblyInfo(typeof(LoggerFactory).Assembly);
     logger.LogInformation("AssemblyTitle:{appTitle}; Version:{appVersion} Framework:{frameworkName}",
         asmLoggerFactory.Title, asmLoggerFactory.InformationalVersion, asmLoggerFactory.FrameworkName);
+
+    var asmSerilogAspNetCore = new AssemblyInfo(typeof(SerilogApplicationBuilderExtensions).Assembly);
+    logger.LogInformation("AssemblyTitle:{title}; Version:{version} Framework:{framework}",
+        asmSerilogAspNetCore.Title, asmSerilogAspNetCore.InformationalVersion, asmSerilogAspNetCore.FrameworkName);
 
     // Add services to the container.
 

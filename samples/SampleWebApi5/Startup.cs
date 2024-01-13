@@ -1,5 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
+using NetLah.Diagnostics;
 using NetLah.Extensions.Logging;
+using Serilog;
 
 namespace SampleWebApi;
 
@@ -18,6 +20,10 @@ public class Startup
     {
         var logger = AppLog.Logger;
         logger.LogInformation("ConfigureServices...");          //  write log to sinks
+
+        var asmSerilogAspNetCore = new AssemblyInfo(typeof(SerilogApplicationBuilderExtensions).Assembly);
+        logger.LogInformation("AssemblyTitle:{title}; Version:{version} Framework:{framework}",
+            asmSerilogAspNetCore.Title, asmSerilogAspNetCore.InformationalVersion, asmSerilogAspNetCore.FrameworkName);
 
         services.AddControllers();
         services.AddSwaggerGen(c =>

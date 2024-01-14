@@ -19,11 +19,17 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         var logger = AppLog.Logger;
+        void LogAssembly(AssemblyInfo assembly)
+        {
+            logger.LogInformation("AssemblyTitle:{title}; Version:{version} Framework:{framework}",
+            assembly.Title, assembly.InformationalVersion, assembly.FrameworkName);
+        }
+
         logger.LogInformation("ConfigureServices...");          //  write log to sinks
 
-        var asmSerilogAspNetCore = new AssemblyInfo(typeof(SerilogApplicationBuilderExtensions).Assembly);
-        logger.LogInformation("AssemblyTitle:{title}; Version:{version} Framework:{framework}",
-            asmSerilogAspNetCore.Title, asmSerilogAspNetCore.InformationalVersion, asmSerilogAspNetCore.FrameworkName);
+        LogAssembly(new AssemblyInfo(typeof(ConfigurationBinder).Assembly));
+        LogAssembly(new AssemblyInfo(typeof(LoggerFactory).Assembly));
+        LogAssembly(new AssemblyInfo(typeof(SerilogApplicationBuilderExtensions).Assembly));
 
         services.AddControllers();
         services.AddSwaggerGen(c =>

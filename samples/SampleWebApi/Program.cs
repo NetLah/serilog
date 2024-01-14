@@ -16,17 +16,15 @@ try
         appInfo.Title, appInfo.InformationalVersion, appInfo.BuildTimestampLocal, appInfo.FrameworkName));
 
     var logger = AppLog.Logger;
-    var asmConfigurationBinder = new AssemblyInfo(typeof(ConfigurationBinder).Assembly);
-    logger.LogInformation("AssemblyTitle:{appTitle}; Version:{appVersion} Framework:{frameworkName}",
-        asmConfigurationBinder.Title, asmConfigurationBinder.InformationalVersion, asmConfigurationBinder.FrameworkName);
+    void LogAssembly(AssemblyInfo assembly)
+    {
+        logger.LogInformation("AssemblyTitle:{title}; Version:{version} Framework:{framework}",
+        assembly.Title, assembly.InformationalVersion, assembly.FrameworkName);
+    }
 
-    var asmLoggerFactory = new AssemblyInfo(typeof(LoggerFactory).Assembly);
-    logger.LogInformation("AssemblyTitle:{appTitle}; Version:{appVersion} Framework:{frameworkName}",
-        asmLoggerFactory.Title, asmLoggerFactory.InformationalVersion, asmLoggerFactory.FrameworkName);
-
-    var asmSerilogAspNetCore = new AssemblyInfo(typeof(SerilogApplicationBuilderExtensions).Assembly);
-    logger.LogInformation("AssemblyTitle:{title}; Version:{version} Framework:{framework}",
-        asmSerilogAspNetCore.Title, asmSerilogAspNetCore.InformationalVersion, asmSerilogAspNetCore.FrameworkName);
+    LogAssembly(new AssemblyInfo(typeof(ConfigurationBinder).Assembly));
+    LogAssembly(new AssemblyInfo(typeof(LoggerFactory).Assembly));
+    LogAssembly(new AssemblyInfo(typeof(SerilogApplicationBuilderExtensions).Assembly));
 
     // Add services to the container.
 

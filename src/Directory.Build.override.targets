@@ -31,4 +31,8 @@
     <PackageReference Update="Serilog.Sinks.Console" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(NET_8_0)' == true">
+    <PackageReference Update="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.0.3" />
+  </ItemGroup>
+
 </Project>

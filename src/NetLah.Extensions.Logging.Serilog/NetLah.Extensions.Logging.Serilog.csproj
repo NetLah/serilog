@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>NetLah.Extensions.Logging.Serilog</PackageId>
     <PackageTags>logging;serilog;dotnet;netcore</PackageTags>
-    <TargetFrameworks>net8.0;net7.0;net6.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net9.0;net8.0;net7.0;net6.0;netstandard2.1</TargetFrameworks>
     <Description>Initializing Serilog and wrapping Serilog to `Microsoft.Extensions.Logging.ILogger` for ConsoleApp</Description>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../../NetLah.snk</AssemblyOriginatorKeyFile>

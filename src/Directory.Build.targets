@@ -3,9 +3,13 @@
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)'))" Condition="'$(ImportedCommonProps)' == ''" />
 
   <Import Project="$(MSBuildThisFileDirectory)Directory.Build.initial.targets" Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.initial.targets')" />
-
+  
+  <PropertyGroup Condition="'$(PackageLibraryTargetFlag)' == ''">
+    <PackageLibraryTargetFlag>false</PackageLibraryTargetFlag>
+  </PropertyGroup>
+  
   <PropertyGroup Condition="'$(LatestDevFrameworkVersion)' == ''">
-    <LatestDevFrameworkVersion>9.0.0-preview.1.*</LatestDevFrameworkVersion>
+    <LatestDevFrameworkVersion>10.0.0-preview.1.*</LatestDevFrameworkVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(FrameworkVersion)' == ''">
@@ -14,7 +18,7 @@
     <FrameworkVersion Condition="'$(NET_6_0)' == true">6.0.0</FrameworkVersion>
     <FrameworkVersion Condition="'$(NET_7_0)' == true">7.0.0</FrameworkVersion>
     <FrameworkVersion Condition="'$(NET_8_0)' == true">8.0.0</FrameworkVersion>
-    <FrameworkVersion Condition="'$(NET_9_0)' == true">9.0.0-preview.1.*</FrameworkVersion>
+    <FrameworkVersion Condition="'$(NET_9_0)' == true">9.0.0</FrameworkVersion>
     <FrameworkVersion Condition="'$(FrameworkVersion)' == ''">$(LatestDevFrameworkVersion)</FrameworkVersion>
   </PropertyGroup>
 
@@ -27,7 +31,11 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <NpgsqlVersion Condition="'$(NpgsqlVersion)' == '' And '$(NET_3_1_LESS_OR_STD)' == true">4.1.2</NpgsqlVersion>
+    <NpgsqlVersion Condition="'$(NpgsqlVersion)' == '' And '$(NET_9_0_UP)' == true">8.0.2</NpgsqlVersion>
     <SystemTextJsonVersion Condition="'$(NET_5_0_LESS_OR_STD)' == true">5.0.0</SystemTextJsonVersion>
+    <SystemTextJsonVersion Condition="'$(NET_6_0)' == true">6.0.0</SystemTextJsonVersion>
+    <SystemTextJsonVersion Condition="'$(NET_7_0)' == true">7.0.0</SystemTextJsonVersion>
     <SwashbuckleVersion Condition="'$(SwashbuckleVersion)' == ''">6.0.0</SwashbuckleVersion>
   </PropertyGroup>
 
@@ -36,14 +44,15 @@
   <ItemGroup>
     <!--the helpers -->
     <PackageReference Update="NetLah.Abstractions" Version="1.0.0" />
+    <PackageReference Update="NetLah.Extensions.ClockProvider" Version="1.0.0" />
     <PackageReference Update="NetLah.Extensions.CommandLineUtils" Version="0.1.0-a1.2" />
-    <PackageReference Update="NetLah.Extensions.Configuration" Version="1.0.0-rc2" />
-    <PackageReference Update="NetLah.Extensions.EventAggregator" Version="1.0.0-rc1" />
-    <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="1.0.0-rc1" />
-    <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="1.0.0-rc1" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="1.0.0-rc1" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="1.0.0-rc1" />
-    <PackageReference Update="NetLah.Extensions.SpaServices.Hosting" Version="1.0.0-rc1" />
+    <PackageReference Update="NetLah.Extensions.Configuration" Version="1.0.0-rc3.2" />
+    <PackageReference Update="NetLah.Extensions.EventAggregator" Version="1.0.0-rc2" />
+    <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="1.0.0-rc2" />
+    <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="1.0.0-rc2" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="1.0.0-rc2" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="1.0.0-rc2" />
+    <PackageReference Update="NetLah.Extensions.SpaServices.Hosting" Version="1.0.0-rc3" />
     <PackageReference Update="Testing.Dynamic.Json" Version="1.0.0-rc3" />
 
     <!--serilog-->
@@ -56,7 +65,7 @@
     <PackageReference Update="Serilog.Extensions.Logging" Version="8.0.0" />
     <PackageReference Update="Serilog.Formatting.Compact" Version="2.0.0" />
     <PackageReference Update="Serilog.Settings.Configuration" Version="8.0.0" />
-    <PackageReference Update="Serilog.Sinks.AzureAnalytics" Version="5.0.0" />
+    <!--<PackageReference Update="Serilog.Sinks.AzureAnalytics" Version="5.0.0" />-->
     <PackageReference Update="Serilog.Sinks.Console" Version="5.0.0" />
     <PackageReference Update="Serilog.Sinks.Debug" Version="2.0.0" />
     <PackageReference Update="Serilog.Sinks.File" Version="5.0.0" />
@@ -96,7 +105,7 @@
     <!--microsoft identity-->
     <PackageReference Update="Microsoft.Graph.Core" Version="3.0.0" />
     <PackageReference Update="Microsoft.Identity.Client.Extensions.Msal" Version="2.31.0" />
-    <PackageReference Update="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.1.2" />
+    <PackageReference Update="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.0.1" />
 
     <!--open api-->
     <PackageReference Update="Microsoft.OpenApi" Version="1.0.0" />

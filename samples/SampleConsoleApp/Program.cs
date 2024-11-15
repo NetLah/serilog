@@ -10,7 +10,13 @@ try
 {
     AppLog.Logger.LogInformation("Application configure...");   // write log console only
 
-    var configuration = ConfigurationBuilderBuilder.Create<Program>(args).Build();
+    var configBuilder = ConfigurationBuilderBuilder.Create<Program>(args);
+#if NET6_0_OR_GREATER
+    var configuration = configBuilder.Manager;
+#else
+    var configuration = configBuilder.Build();
+#endif
+
     var logger = AppLog.CreateAppLogger<Program>(configuration);
 
     // write log to sinks

@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <CurrentFrameworkVersion>6.0.28;7.0.17;8.0.3</CurrentFrameworkVersion>
+    <CurrentFrameworkVersion>6.0.36;8.0.11;9.0.0</CurrentFrameworkVersion>
     <ImportedCommonProps>True</ImportedCommonProps>
 
     <NET_ID>$([MSBuild]::GetTargetFrameworkIdentifier($(TargetFramework)))</NET_ID>
@@ -80,6 +80,10 @@
     <NET_9_0_LESS_OR_STD Condition="'$(NET_9_0_LESS)' == true Or '$(NET_STD_2_X)' == true">True</NET_9_0_LESS_OR_STD>
     <NET_9_0_UP_OR_STD Condition="'$(NET_9_0_UP)' == true Or '$(NET_STD_2_X)' == true">True</NET_9_0_UP_OR_STD>
 
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DefineConstants Condition="'$(NET_6_0_LESS)' == true">NET_6_0_LESS</DefineConstants>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)Common.override.props" Condition="Exists('$(MSBuildThisFileDirectory)Common.override.props')" />

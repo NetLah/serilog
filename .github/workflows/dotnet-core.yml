@@ -2,17 +2,26 @@ name: .NET Core
 
 on:
   push:
-    branches: ["main", "dev*"]
-    tags: ["*.*.*"]
+    branches:
+      - main
+      - feature/**
+      - dev*
+      - dev/*
+    tags:
+      - "*.*.*"
   pull_request:
     branches: [main]
+
+env:
+  DOTNET_NOLOGO: true
 
 jobs:
   build:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [macos-11, ubuntu-22.04, windows-latest]
+        # runs-on: [macos-11, ubuntu-22.04, windows-latest]
+        runs-on: [ubuntu-22.04, windows-latest]
     name: ${{ matrix.runs-on }}
     runs-on: ${{ matrix.runs-on }}
     steps:
@@ -20,7 +29,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup .NET 8.0.x, 7.0.x, 6.0.x, 5.0.x and 3.1.x
+      - name: Setup .NET 9.0.x, 8.0.x, 7.0.x, 6.0.x, 5.0.x and 3.1.x
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
@@ -29,12 +38,13 @@ jobs:
             6.0.x
             7.0.x
             8.0.x
+            9.0.x
 
-      - name: Setup .NET 9.0.x Preview
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
-          dotnet-quality: 'preview'
+      # - name: Setup .NET 9.0.x Preview
+      #   uses: actions/setup-dotnet@v4
+      #   with:
+      #     dotnet-version: 9.0.x
+      #     dotnet-quality: 'preview'
 
       - name: dotnet info
         run: dotnet --info

@@ -17,7 +17,7 @@ var hostBuilder = Host.CreateDefaultBuilder(args)
     .UseSerilog2(logger => logger.LogInformation("Application initializing... AppTitle:{appTitle}; Version:{appVersion} BuildTime:{appBuildTime}; Framework:{frameworkName}",
         appInfo.Title, appInfo.InformationalVersion, appInfo.BuildTimestampLocal, appInfo.FrameworkName));
 
-IHost host = hostBuilder.Build();
+var host = hostBuilder.Build();
 
 var logger = AppLog.Logger;
 var asmConfigurationBinder = new AssemblyInfo(typeof(ConfigurationBinder).Assembly);

@@ -31,7 +31,7 @@ public static class AppLogReference
         {
             var type = Type.GetType("NetLah.Extensions.Logging.AppLog, NetLah.Extensions.Logging.Serilog");
             if (type != null &&
-                type.GetMethod("CreateLogger", new Type[] { typeof(string) }) is { } methodInfo &&
+                type.GetMethod("CreateLogger", [typeof(string)]) is { } methodInfo &&
                 typeof(ILogger).IsAssignableFrom(methodInfo.ReturnType))
             {
                 return (Func<string?, ILogger?>)methodInfo.CreateDelegate(typeof(Func<string?, ILogger?>));

@@ -20,12 +20,9 @@ public static class AspNetCoreWebApplicationBuilderExtensions
         Action<WebApplicationBuilder, LoggerConfiguration> loggerConfigurationFactory,
         Action<IFrameworkLogger>? applicationLoggerCreated = null)
     {
-        if (webApplicationBuilder == null)
-        {
-            throw new ArgumentNullException(nameof(webApplicationBuilder));
-        }
-
-        return loggerConfigurationFactory == null
+        return webApplicationBuilder == null
+            ? throw new ArgumentNullException(nameof(webApplicationBuilder))
+            : loggerConfigurationFactory == null
             ? throw new ArgumentNullException(nameof(loggerConfigurationFactory))
             : webApplicationBuilder
             .UseSerilog(builder => AppLog.CreateAppLogger(lc => loggerConfigurationFactory(builder, lc)),

@@ -15,7 +15,7 @@ internal class Runner : IAsyncDisposable
     {
         _logger.LogInformation("[DisposeAsync] Runner");        //  write log to sinks
 #if NETCOREAPP3_1
-            return new ValueTask(Task.CompletedTask);
+        return new ValueTask(Task.CompletedTask);
 #else
         return ValueTask.CompletedTask;
 #endif

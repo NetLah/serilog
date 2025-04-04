@@ -23,11 +23,7 @@
     <PackageReference Update="Microsoft.Graph.Core" Version="2.0.0" />
     <PackageReference Update="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.15.1" />
     <PackageReference Update="Serilog" Version="2.12.0" />
-    <PackageReference Update="Serilog.AspNetCore" Version="7.0.0" />
-    <PackageReference Update="Serilog.Extensions.Hosting" Version="7.0.0" />
-    <PackageReference Update="Serilog.Extensions.Logging" Version="7.0.0" />
     <PackageReference Update="Serilog.Formatting.Compact" Version="1.1.0" />
-    <PackageReference Update="Serilog.Settings.Configuration" Version="7.0.0" />
     <PackageReference Update="Serilog.Sinks.Console" Version="4.0.1" />
   </ItemGroup>
 

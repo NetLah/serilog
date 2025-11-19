@@ -11,6 +11,7 @@
     <AssemblyName>NetLah.Extensions.Logging.Serilog.AspNetCore</AssemblyName>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <SuppressTfmSupportBuildErrors>true</SuppressTfmSupportBuildErrors>
     <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 

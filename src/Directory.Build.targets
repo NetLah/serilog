@@ -59,14 +59,14 @@
     <PackageReference Update="NetLah.Abstractions" Version="1.0.0" />
     <PackageReference Update="NetLah.Extensions.ClockProvider" Version="1.0.0" />
     <PackageReference Update="NetLah.Extensions.CommandLineUtils" Version="0.1.0-a1.2" />
-    <PackageReference Update="NetLah.Extensions.Configuration" Version="1.0.0-rc4" />
+    <PackageReference Update="NetLah.Extensions.Configuration" Version="1.0.0" />
     <PackageReference Update="NetLah.Extensions.EventAggregator" Version="1.0.0-rc2" />
-    <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="1.0.0-rc2" />
-    <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="1.0.0-rc2" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="1.0.0-rc2" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="1.0.0-rc2" />
-    <PackageReference Update="NetLah.Extensions.SpaServices.Hosting" Version="1.0.0-rc3" />
-    <PackageReference Update="Testing.Dynamic.Json" Version="1.0.0-rc3" />
+    <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="1.0.0" />
+    <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="1.0.0" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="1.0.0" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="1.0.0" />
+    <PackageReference Update="NetLah.Extensions.SpaServices.Hosting" Version="1.2.0" />
+    <PackageReference Update="Testing.Dynamic.Json" Version="1.0.0" />
 
     <!--serilog-->
     <PackageReference Update="Serilog" Version="4.2.0" />
@@ -119,7 +119,7 @@
     <PackageReference Update="Microsoft.OpenApi" Version="1.0.0" />
 
   </ItemGroup>
-
+  
   <ItemGroup Condition="'$(NET_8_0_LESS_OR_STD)' == true">
     <PackageReference Update="Serilog" Version="3.1.1" />
     <PackageReference Update="Serilog.Formatting.Compact" Version="2.0.0" />

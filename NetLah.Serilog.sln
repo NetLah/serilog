@@ -11,7 +11,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43ECBF11-5D83-49DE-BE0A-1A8B4E254A3B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		.azure\pipelines\azure-pipelines.yml = .azure\pipelines\azure-pipelines.yml
 		Common.props = Common.props
 		DevNotes.md = DevNotes.md
 		Directory.Build.initial.targets = Directory.Build.initial.targets

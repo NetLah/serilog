@@ -3,11 +3,11 @@
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)'))" Condition="'$(ImportedCommonProps)' == ''" />
 
   <Import Project="$(MSBuildThisFileDirectory)Directory.Build.initial.targets" Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.initial.targets')" />
-  
+
   <PropertyGroup Condition="'$(PackageLibraryTargetFlag)' == ''">
     <PackageLibraryTargetFlag>false</PackageLibraryTargetFlag>
   </PropertyGroup>
-  
+
   <PropertyGroup Condition="'$(LatestDevFrameworkVersion)' == ''">
     <LatestDevFrameworkVersion>11.2.*-*</LatestDevFrameworkVersion>
   </PropertyGroup>
@@ -19,7 +19,8 @@
     <FrameworkVersion Condition="'$(NET_7_0)' == true">7.0.0</FrameworkVersion>
     <FrameworkVersion Condition="'$(NET_8_0)' == true">8.0.0</FrameworkVersion>
     <FrameworkVersion Condition="'$(NET_9_0)' == true">9.0.0</FrameworkVersion>
-    <FrameworkVersion Condition="'$(NET_10_0)' == true">10.0.0-preview.1.*</FrameworkVersion>
+    <FrameworkVersion Condition="'$(NET_10_0)' == true">10.0.0</FrameworkVersion>
+    <FrameworkVersion Condition="'$(NET_11_0)' == true">11.0.0-preview.1.*</FrameworkVersion>
     <FrameworkVersion Condition="'$(FrameworkVersion)' == ''">$(LatestDevFrameworkVersion)</FrameworkVersion>
   </PropertyGroup>
 
@@ -40,16 +41,12 @@
     <SwashbuckleVersion Condition="'$(SwashbuckleVersion)' == ''">6.0.0</SwashbuckleVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(SerilogVersion)' == '' And '$(NET_7_0)' == true">
-    <SerilogVersion>7.0.0</SerilogVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(SerilogVersion)' == '' And '$(NET_8_0)' == true">
-    <SerilogVersion>8.0.0</SerilogVersion>
-  </PropertyGroup>
-
   <PropertyGroup Condition="'$(SerilogVersion)' == ''">
-    <SerilogVersion>9.0.0</SerilogVersion>
+    <SerilogVersion Condition="'$(NET_7_0)' == true">7.0.0</SerilogVersion>
+    <SerilogVersion Condition="'$(NET_8_0)' == true">8.0.0</SerilogVersion>
+    <SerilogVersion Condition="'$(NET_9_0)' == true">9.0.0</SerilogVersion>
+    <SerilogVersion Condition="'$(NET_10_0)' == true">10.0.0</SerilogVersion>
+    <SerilogVersion Condition="'$(SerilogVersion)' == ''">10.0.0</SerilogVersion>
   </PropertyGroup>
 
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))" />
@@ -59,24 +56,26 @@
     <PackageReference Update="NetLah.Abstractions" Version="1.0.0" />
     <PackageReference Update="NetLah.Extensions.ClockProvider" Version="1.0.0" />
     <PackageReference Update="NetLah.Extensions.CommandLineUtils" Version="0.1.0-a1.2" />
-    <PackageReference Update="NetLah.Extensions.Configuration" Version="1.0.0" />
+    <PackageReference Update="NetLah.Extensions.Configuration" Version="1.0.1" />
     <PackageReference Update="NetLah.Extensions.EventAggregator" Version="1.0.0-rc2" />
-    <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="1.0.0" />
+    <PackageReference Update="NetLah.Extensions.HttpOverrides" Version="1.0.1" />
     <PackageReference Update="NetLah.Extensions.Logging.Reference" Version="1.0.0" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="1.0.0" />
-    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="1.0.0" />
-    <PackageReference Update="NetLah.Extensions.SpaServices.Hosting" Version="1.2.0" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="1.0.2" Condition="'$(NET_10_0_UP)' == true" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="1.0.2" Condition="'$(NET_10_0_UP)' == true" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog" Version="1.0.0" Condition="'$(NET_9_0_LESS)' == true" />
+    <PackageReference Update="NetLah.Extensions.Logging.Serilog.AspNetCore" Version="1.0.0" Condition="'$(NET_9_0_LESS)' == true" />
+    <PackageReference Update="NetLah.Extensions.SpaServices.Hosting" Version="1.3.0" />
     <PackageReference Update="Testing.Dynamic.Json" Version="1.0.0" />
 
     <!--serilog-->
-    <PackageReference Update="Serilog" Version="4.2.0" />
+    <PackageReference Update="Serilog" Version="4.3.0" />
     <PackageReference Update="Serilog.Enrichers.CorrelationId" Version="3.0.0" />
     <PackageReference Update="Serilog.Enrichers.Environment" Version="2.2.0" />
     <PackageReference Update="Serilog.Enrichers.Thread" Version="3.1.0" />
     <PackageReference Update="Serilog.Formatting.Compact" Version="3.0.0" />
-    <PackageReference Update="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Update="Serilog.Sinks.Console" Version="6.1.1" />
     <PackageReference Update="Serilog.Sinks.Debug" Version="3.0.0" />
-    <PackageReference Update="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Update="Serilog.Sinks.File" Version="7.0.0" />
     <PackageReference Update="Serilog.Sinks.PeriodicBatching" Version="3.0.0" />
     <PackageReference Update="Serilog.Sinks.Seq" Version="6.0.0" />
 
@@ -119,13 +118,21 @@
     <PackageReference Update="Microsoft.OpenApi" Version="1.0.0" />
 
   </ItemGroup>
-  
+
   <ItemGroup Condition="'$(NET_8_0_LESS_OR_STD)' == true">
     <PackageReference Update="Serilog" Version="3.1.1" />
     <PackageReference Update="Serilog.Formatting.Compact" Version="2.0.0" />
     <PackageReference Update="Serilog.Sinks.Console" Version="5.0.0" />
     <PackageReference Update="Serilog.Sinks.Debug" Version="2.0.0" />
     <PackageReference Update="Serilog.Sinks.File" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(NET_9_0)' == true">
+    <PackageReference Update="Microsoft.Graph.Core" Version="3.0.0" />
+    <PackageReference Update="Serilog" Version="4.2.0" />
+    <PackageReference Update="Serilog.Formatting.Compact" Version="3.0.0" />
+    <PackageReference Update="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Update="Serilog.Sinks.File" Version="6.0.0" />
   </ItemGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)Directory.Build.override.targets" Condition="Exists('$(MSBuildThisFileDirectory)Directory.Build.override.targets')" />

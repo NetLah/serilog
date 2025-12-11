@@ -5,12 +5,14 @@ on:
     branches:
       - main
       - feature/**
+      - release/**
       - dev*
-      - dev/*
-    tags:
-      - "*.*.*"
+      - dev/**
+    tags: ["*.*.*"]
   pull_request:
-    branches: [main]
+    branches: 
+      - main
+      - release/**
 
 env:
   DOTNET_NOLOGO: true
@@ -65,7 +67,7 @@ jobs:
           dotnet pack src/NetLah.Extensions.Logging.Serilog/NetLah.Extensions.Logging.Serilog.csproj -c Release -o ./artifacts/packages/ --no-build --verbosity normal
           dotnet pack src/NetLah.Extensions.Logging.Serilog.AspNetCore/NetLah.Extensions.Logging.Serilog.AspNetCore.csproj -c Release -o ./artifacts/packages/ --no-build --verbosity normal
 
-      - if: ${{ success() && runner.os == 'Windows' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')) }}
+      - if: ${{ success() && runner.os == 'Windows' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/') || contains(github.ref, 'refs/heads/release/')) }}
         name: Publish Nuget main to MyGet, GitHub and CloudSmith
         run: |
           dotnet nuget push .\artifacts\packages\*.nupkg -s https://www.myget.org/F/netlah/api/v2/package -k ${{ secrets.MYGET }}
@@ -73,5 +75,5 @@ jobs:
           dotnet nuget push .\artifacts\packages\*.nupkg -s https://nuget.cloudsmith.io/netlah/net-main1/v3/index.json --skip-duplicate -k ${{ secrets.PUSH_CLOUDSMITH_TOKEN }} 
 
       - name: Push CloudSmith dev
-        if: ${{ success() && runner.os == 'Windows' && (startsWith(github.ref, 'refs/heads/dev')) }}
+        if: ${{ success() && runner.os == 'Windows' && (startsWith(github.ref, 'refs/heads/dev') || startsWith(github.ref, 'refs/heads/feature')) }}
         run: dotnet nuget push .\artifacts\packages\*.nupkg -s https://nuget.cloudsmith.io/netlah/net-dev1/v3/index.json --skip-duplicate -k ${{ secrets.PUSH_CLOUDSMITH_TOKEN }} 
